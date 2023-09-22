@@ -1,15 +1,12 @@
-class Laborator2
-   {
-        public static void main(String args[])
-        {
-        Laborator2 transfer = new ContBancar(0);
-        
-        int depunere1 = depozitareSuma(100);
-        int depunere2 = depozitareSuma(11);
+class ContBancar {
 
-        System.out.println(depunere1); 
-        System.out.println(depunere2); 
+	private double _sold = 0.0;
+	
+	public ContBancar(double sold) {
+		_sold = sold;
+	}
 
-        }
-
+	public void depozitareSuma(double suma) {
+		_sold += suma;
+	}
 }
