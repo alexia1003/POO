@@ -1,0 +1,22 @@
+import java.util.Scanner;  
+
+class Laborator2
+{
+public static void main(String[] args) {
+    
+    Scanner sc = new Scanner(System.in);
+    double suma1, suma2;
+    
+    System.out.print("Introdu suma depozit 1: \n");
+    suma1 = sc.nextDouble();
+    
+    System.out.print("Introdu suma depozit 2: \n");
+    suma2 = sc.nextDouble();
+    
+    ContBancar cont = new ContBancar(0.0);
+    cont.depozitareSuma(suma1);
+    cont.depozitareSuma(suma2);
+   
+    //System.out.println("Total suma in cont " + ContBancar );
+}
+}
