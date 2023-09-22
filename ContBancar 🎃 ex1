@@ -10,8 +10,4 @@ class ContBancar {
 		_sold += suma;
 	}
 
-	public void retragereSuma(double suma) {
-		_sold -= suma;
-	}
-
 }
