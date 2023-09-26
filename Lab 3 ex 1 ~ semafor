@@ -1,0 +1,42 @@
+import java.util.*;
+
+public int setCuloare(char culoare) { 
+  culoare = culoare;
+}
+
+public int getCuloare(char culoare) {
+  return culoare
+}
+
+class Semafor {
+
+  private char culoare;
+  
+	private double _durata = 0.5;
+	
+	Semafor c = new Semafor();
+	
+	c.setCuloare(culoare); 
+	
+	/*
+	public Semafor(double durata) {
+		_durata = durata;
+	}
+
+	public void schCuloare(char culoare) {
+		_sold += suma;
+	}
+  */
+}
+
+public class Main {
+  
+  Semafor c1 = new Semafor("rosu");
+  Semafor c2 = new Semafor("verde");
+  
+  
+  public static void main(String[] args) {
+      System.out.println("Hello, World!");
+  }
+}
+
