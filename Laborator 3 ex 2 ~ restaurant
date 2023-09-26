@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Restaurant {
+
+  String element = "Paste";
+  
+	double pret = 20;
+
+  String evaluari = "Good review";
+
+  public static void main(String[] args) {
+  Restaurant empObj = new Restaurant();
+  
+  System.out.println("Element din meniu: " + empObj.element);
+  System.out.println("Pret: " + empObj.pret);
+  System.out.println("Evaluari: " + empObj.evaluari);
+
+  }
+
+}
+
+// metode de adaugare si eliminare a articolelor si pentru a calcula media evaluarilor
