@@ -1,24 +1,24 @@
 public class Student {
-    private static int count = 0; // static variable to keep track of the count
-    private String name;
-    private int age;
+    private static int count = 0; // variabila statica, stoch. numaratoarea
+    private String nume;
+    private int varsta;
 
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-        count++; // increment the count whenever a new object is created
+    public Student(String nume, int varsta) {
+        this.nume = nume;
+        this.varsta = varsta;
+        count++; // creste nr cand e creat un nou obiect
     }
 
     public static int getCount() {
-        return count; // return the count of instantiated objects
+        return count; // returneaza nr obiectelor instantiate
     }
 
-    // getters and setters for name and age
+    // get-uri si set-uri pt nume si varsta 
 
     public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 20);
-        Student s2 = new Student("Jane Smith", 21);
+        Student s1 = new Student("Ioan Andrei", 36);
+        Student s2 = new Student("Miller Anna", 22);
 
-        System.out.println("Number of instantiated objects: " + Student.getCount());
+        System.out.println("Nr obiecte instantiate: " + Student.getCount());
     }
 }
