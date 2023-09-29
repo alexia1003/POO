@@ -1,37 +1,37 @@
-public class MessageRecording {
-    private static MessageRecording instance;
-    private String message;
+public class MesInreg {
+    private static MesInreg inst;
+    private String mess;
 
-    private MessageRecording() {
-        // Private constructor to prevent instantiation.
+    private MesInreg() {
+        // constructor privat pt a evita instantierea.
     }
 
-    public static MessageRecording getInstance() {
-        if (instance == null) {
-            instance = new MessageRecording();
+    public static MesInreg getInst() {
+        if (inst == null) {
+            inst = new MesInreg();
         }
-        return instance;
+        return inst;
     }
 
-    public void recordMessage(String message) {
-        this.message = message;
+    public void inregMess(String mess) {
+        this.mess = mess;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMess() {
+        return mess;
     }
 
     public static void main(String[] args) {
-        // Get the singleton instance
-        MessageRecording messageRecording = MessageRecording.getInstance();
+        // instanta get singleton
+        MesInreg Inregistrare = MesInreg.getInst();
 
-        // Record a message
-        messageRecording.recordMessage("Hello, World!");
+        // inregistreaza un mesaj
+        Inregistrare.inregMess("Weekend placut!");
 
-        // Get the recorded message
-        String recordedMessage = messageRecording.getMessage();
+        // preia mesajul inregistrat
+        String Mesaj = Inregistrare.getMess();
 
-        // Print the recorded message
-        System.out.println("Recorded Message: " + recordedMessage);
+        // afiseaza mesajul inregistrat
+        System.out.println("Mesaj inregistrat: " + Mesaj);
     }
 }
