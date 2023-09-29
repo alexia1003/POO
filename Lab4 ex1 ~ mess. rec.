@@ -3,7 +3,7 @@ public class MesInreg {
     private String mess;
 
     private MesInreg() {
-        // constructor privat pt a evita instantierea.
+        // constructor privat pt a evita instantierea
     }
 
     public static MesInreg getInst() {
