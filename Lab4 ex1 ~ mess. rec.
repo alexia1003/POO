@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+
+public class MessageRecorder {
+    private static MessageRecorder instance;
+    private ArrayList<String> messages;
+
+    private MessageRecorder() {
+        messages = new ArrayList<>();
+    }
+
+    public static MessageRecorder getInstance() {
+        if (instance == null) {
+            synchronized (MessageRecorder.class) {
+                if (instance == null) {
+                    instance = new MessageRecorder();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void recordMessage(String message) {
+        messages.add(message);
+    }
+
+    public void printMessages() {
+        for (String message : messages) {
+            System.out.println(message);
+        }
+    }
+}
+
+public static void main(String[] args) {
+  System.out.println(message);
+
+}
