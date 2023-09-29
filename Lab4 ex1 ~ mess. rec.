@@ -1,36 +1,37 @@
-import java.util.ArrayList;
+public class MessageRecording {
+    private static MessageRecording instance;
+    private String message;
 
-public class MessageRecorder {
-    private static MessageRecorder instance;
-    private ArrayList<String> messages;
-
-    private MessageRecorder() {
-        messages = new ArrayList<>();
+    private MessageRecording() {
+        // Private constructor to prevent instantiation.
     }
 
-    public static MessageRecorder getInstance() {
+    public static MessageRecording getInstance() {
         if (instance == null) {
-            synchronized (MessageRecorder.class) {
-                if (instance == null) {
-                    instance = new MessageRecorder();
-                }
-            }
+            instance = new MessageRecording();
         }
         return instance;
     }
 
     public void recordMessage(String message) {
-        messages.add(message);
+        this.message = message;
     }
 
-    public void printMessages() {
-        for (String message : messages) {
-            System.out.println(message);
-        }
+    public String getMessage() {
+        return message;
     }
-}
 
-public static void main(String[] args) {
-  System.out.println(message);
+    public static void main(String[] args) {
+        // Get the singleton instance
+        MessageRecording messageRecording = MessageRecording.getInstance();
 
+        // Record a message
+        messageRecording.recordMessage("Hello, World!");
+
+        // Get the recorded message
+        String recordedMessage = messageRecording.getMessage();
+
+        // Print the recorded message
+        System.out.println("Recorded Message: " + recordedMessage);
+    }
 }
