@@ -1,0 +1,25 @@
+class Mesaje {
+    private static Mesaje instance;
+    
+    private String camp1;
+    private int camp2;
+    
+    private Mesaje() {
+        camp1 = "Nedefinit";
+        camp2 = -1;
+    }
+    
+    public static Mesaje getInstance() {
+        if(null == instance)
+        { instance = new Mesaje(); }
+        return instance;
+    }
+    
+    public void modificaCamp1 (String valoare) {
+        camp1 = valoare;
+    }
+    
+    public void modificaCamp2 (int valoare) {
+        camp2 = valoare;
+    }
+}
