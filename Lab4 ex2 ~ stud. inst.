@@ -1,0 +1,24 @@
+public class Student {
+    private static int count = 0; // static variable to keep track of the count
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+        count++; // increment the count whenever a new object is created
+    }
+
+    public static int getCount() {
+        return count; // return the count of instantiated objects
+    }
+
+    // getters and setters for name and age
+
+    public static void main(String[] args) {
+        Student s1 = new Student("John Doe", 20);
+        Student s2 = new Student("Jane Smith", 21);
+
+        System.out.println("Number of instantiated objects: " + Student.getCount());
+    }
+}
