@@ -1,0 +1,24 @@
+class Catel {
+  public String nume;
+  public String rasa;
+  public String cip;
+  public int varsta;
+  public String zla; //ziua de nastere
+
+  public Catel(String nume, String rasa, String cip, String zla) {
+    this.nume = nume;
+    this.rasa = rasa;
+    this.cip = cip;
+  }
+}
+
+class AplicatieCatel {
+    public static void main (String[] args) {
+      Catel c1 = new Catel("Ann","BuldogFrancez","3344","10.03.2010");
+      c1.varsta = 13;
+
+      Catel c2 = new Catel("Happy","Dalmatian","6655", "15.02.2020");
+      c2.varsta = 3;
+    }
+    
+}
