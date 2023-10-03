@@ -17,7 +17,7 @@ public class Grade {
         double convertedFahrenheit = convertCtoF(celsius);
         double convertedCelsius = convertFtoC(fahrenheit);
         
-        System.out.println(celsius + " degrees Celsius is " + convertedFahrenheit + " degrees Fahrenheit.");
-        System.out.println(fahrenheit + " degrees Fahrenheit is " + convertedCelsius + " degrees Celsius.");
+        System.out.println(celsius + " grade Celsius sunt " + convertedFahrenheit + " grade Fahrenheit.");
+        System.out.println(fahrenheit + " grade Fahrenheit sunt " + convertedCelsius + " grade Celsius.");
     }
 }
