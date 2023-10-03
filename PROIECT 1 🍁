@@ -1,4 +1,6 @@
-class Catel {
+
+
+public class Catel {
   public String nume;
   public String rasa;
   public String cip;
@@ -10,9 +12,7 @@ class Catel {
     this.rasa = rasa;
     this.cip = cip;
   }
-}
 
-class AplicatieCatel {
     public static void main (String[] args) {
       Catel c1 = new Catel("Ann","BuldogFrancez","3344","10.03.2010");
       c1.varsta = 13;
