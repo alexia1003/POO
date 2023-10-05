@@ -11,6 +11,7 @@ public class Catel {
     this.nume = nume;
     this.rasa = rasa;
     this.cip = cip;
+    this.zla = zla;
   }
 
     public static void main (String[] args) {
