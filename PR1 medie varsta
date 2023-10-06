@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class calculMedieVarsta {
+    public static double calculMedieVarsta(int[] varsta) {
+        int sum = 0;
+        for (int v : varsta) {
+            sum += v;
+        }
+        return (double) sum / varsta.length;
+    }
+
+    public static void main(String[] args) {
+        int[] varsta = {25, 30, 35, 40, 45};
+        double medieVarsta = calculMedieVarsta(varsta);
+        System.out.println("Varsta medie: " + medieVarsta);
+    }
+}
+
