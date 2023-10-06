@@ -1,25 +1,28 @@
 
 
-public class Catel {
+public class Medic {
   public String nume;
-  public String rasa;
-  public String cip;
+  public String prenume;
+  public String ID;
   public int varsta;
-  public String zla; //ziua de nastere
+  public int aniexp; //ani experienta
+  public String departament; 
 
-  public Catel(String nume, String rasa, String cip, String zla) {
+  public Catel(String nume, String prenume, String ID, String departament) {
     this.nume = nume;
-    this.rasa = rasa;
-    this.cip = cip;
-    this.zla = zla;
+    this.rasa = prenume;
+    this.cip = ID;
+    this.departament = departament;
   }
 
     public static void main (String[] args) {
-      Catel c1 = new Catel("Ann","BuldogFrancez","3344","10.03.2010");
-      c1.varsta = 13;
+      Medic m1 = new Medic("Marin","Andrei","3344","Oftalmologie");
+      m1.varsta = 33;
+      m1.aniexp = 8;
 
-      Catel c2 = new Catel("Happy","Dalmatian","6655", "15.02.2020");
-      c2.varsta = 3;
+      Medic m2 = new Medic("Barbu","Ioana","6655", "Cardiologie");
+      m2.varsta = 26;
+      m2.aniexp = 1;
     }
     
 }
