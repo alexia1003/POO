@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+public class AfiseazaVarsta {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int nr;
+
+        System.out.print("Introd nr de varste: ");
+        nr = scanner.nextInt();
+
+        int[] varsta = new int[nr];
+
+        for (int i = 0; i < nr; i++) {
+            System.out.print("Introdu varsta " + (i + 1) + ": ");
+            varsta[i] = scanner.nextInt();
+        }
+
+        System.out.println("Varstele introduse:");
+
+        for (int i = 0; i < nr; i++) {
+            System.out.println("Varsta " + (i + 1) + ": " + varsta[i]);
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+/*
+
+
+public class Medic {
+  public String nume;
+  public String prenume;
+  public String ID;
+  public int varsta;
+  public int aniexp; //ani experienta
+  public String departament; 
+
+  public Medic(String nume, String prenume, String ID, String departament) {
+    this.nume = nume;
+    this.prenume = prenume;
+    this.ID = ID;
+    this.departament = departament;
+  }
+  
+  
+
+    public static void main (String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      int alege;
+      do {
+        System.out.println("Meniu:");
+        System.out.println("1. Optiunea 1");
+        System.out.println("2. Optiunea 2");
+        System.out.println("3. Optiunea 3");
+        System.out.println("4. Exit");
+        System.out.print("Introd alegere: ");
+        alege = scanner.nextInt();
+
+      switch (alege) {
+        case 1:
+          System.out.println("You selected Option 1");
+          break;
+        case 2:
+          System.out.println("You selected Option 2");
+          break;
+        case 3:
+          System.out.println("You selected Option 3");
+          break;
+        case 4:
+          System.out.println("Exiting...");
+          break;
+        default:
+          System.out.println("Invalid choice. Please try again.");
+      }
+      System.out.println();
+      } while (alege != 4);
+
+      scanner.close();
+    }
+      
+      //Medic m1 = new Medic("Marin","Andrei","3344","Oftalmologie");
+      //m1.varsta = 33;
+      //m1.aniexp = 8;
+
+      //Medic m2 = new Medic("Barbu","Ioana","6655", "Cardiologie");
+      //m2.varsta = 26;
+      //m2.aniexp = 1;
+}
+
+*/
