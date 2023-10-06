@@ -10,8 +10,8 @@ public class Medic {
 
   public Medic(String nume, String prenume, String ID, String departament) {
     this.nume = nume;
-    this.rasa = prenume;
-    this.cip = ID;
+    this.prenume = prenume;
+    this.ID = ID;
     this.departament = departament;
   }
 
