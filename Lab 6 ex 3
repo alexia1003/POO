@@ -1,0 +1,32 @@
+public class CititorTastatura {
+  private String message;
+  private String source;
+  
+  public CititorTastatura(String message, String source){
+    this.message = message;
+    this.source = source;
+  }
+  
+  public void citesteTastatura() {
+    
+  }
+}
+
+public class Manager {
+  private CititorTastatura cititor;
+  private String cool_message;
+  
+  public Manager(CititorTastatura){
+    
+  }
+  
+  public String afiseazaMesaj() {
+    
+  }
+  
+  public String citesteMesaj() {
+    
+    
+  }
+}
+
