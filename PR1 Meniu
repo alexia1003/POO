@@ -29,19 +29,19 @@ public class Medic {
 
       switch (alege) {
         case 1:
-          System.out.println("You selected Option 1");
+          System.out.println("Ai selectat op 1");
           break;
         case 2:
-          System.out.println("You selected Option 2");
+          System.out.println("Ai selectat op 2");
           break;
         case 3:
-          System.out.println("You selected Option 3");
+          System.out.println("Ai selecttar op 3");
           break;
         case 4:
           System.out.println("Exiting...");
           break;
         default:
-          System.out.println("Invalid choice. Please try again.");
+          System.out.println("Alegere invalida.");
       }
       System.out.println();
       } while (alege != 4);
