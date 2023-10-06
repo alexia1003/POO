@@ -8,7 +8,7 @@ public class Medic {
   public int aniexp; //ani experienta
   public String departament; 
 
-  public Catel(String nume, String prenume, String ID, String departament) {
+  public Medic(String nume, String prenume, String ID, String departament) {
     this.nume = nume;
     this.rasa = prenume;
     this.cip = ID;
