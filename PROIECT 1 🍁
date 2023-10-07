@@ -9,6 +9,7 @@ public class Medic {
   public String departament; 
 
 // setMedic 
+// ~ op.1
   public Medic(String nume, String prenume, String ID, String departament) {
     this.nume = nume;
     this.prenume = prenume;
@@ -16,14 +17,20 @@ public class Medic {
     this.departament = departament;
   }
   
-  // gasire medic ID ???
-  
+// gasire medic ID ???
   public String getID() {
   return ID;
-}
+  }
+// ~ op.2
+  public static void srchID(String ID) {
+  Scanner scanner = new Scanner(System.in);
+  System.out.println("ID medic: ");
+  ID = scanner.next();
+  scanner.nextLine();
+  }
   
-  
-  //introd varsta afisare medie varsta
+// introd varsta afisare medie varsta
+// ~ op.3
   public static double addVarsta(int varsta) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Varsta: ");
@@ -34,9 +41,8 @@ public class Medic {
     return (double) sum / varsta;
   }
   
-  
-  
-  
+// afisare medie ani experienta
+// ~ op.4
   public static double calculMedieAniExp(int[] anex) {
     int sum = 0;
     for (int ae : anex) 
@@ -50,8 +56,8 @@ public class Medic {
       int alege;
       int varstamed;
       varstamed = scanner.nextInt();
-
-
+      String idm = "2211";
+      
       do {
         System.out.println("Meniu:");
         System.out.println("1. Introduce si afisare medic");
@@ -77,7 +83,8 @@ public class Medic {
           System.out.println(m2);
           break;
         case 2:
-          System.out.println("Ai selectat op 2");
+          srchID(idm);
+          System.out.println(idm);
           break;
         case 3:
           addVarsta(varstamed);
