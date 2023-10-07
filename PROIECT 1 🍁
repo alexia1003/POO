@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Medic {
+// membrii, var. clasei
   public String nume;
   public String prenume;
   public String ID;
@@ -8,7 +9,7 @@ public class Medic {
   public int aniexp; //ani experienta
   public String departament; 
 
-// setMedic 
+// setMedic ~ constructor pt clasa Medic
 // ~ op.1
   public Medic(String nume, String prenume, String ID, String departament) {
     this.nume = nume;
@@ -16,12 +17,16 @@ public class Medic {
     this.ID = ID;
     this.departament = departament;
   }
-  
-// gasire medic ID ???
-  public String getID() {
-  return ID;
-  }
+
+// metodele clasei Medic
+// acceseaza ID medic 
 // ~ op.2
+  public String getID() {
+    return ID; }
+ 
+  
+// gaseste medic dupa ID ???
+// ~ op.3
   public static void srchID(String ID) {
   Scanner scanner = new Scanner(System.in);
   System.out.println("ID medic: ");
@@ -30,7 +35,7 @@ public class Medic {
   }
   
 // introd varsta afisare medie varsta
-// ~ op.3
+// ~ op.4
   public static double addVarsta(int varsta) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Varsta: ");
@@ -42,7 +47,7 @@ public class Medic {
   }
   
 // afisare medie ani experienta
-// ~ op.4
+// ~ op.5
   public static double calculMedieAniExp(int[] anex) {
     int sum = 0;
     for (int ae : anex) 
@@ -61,16 +66,19 @@ public class Medic {
       do {
         System.out.println("Meniu:");
         System.out.println("1. Introduce si afisare medic");
-        System.out.println("2. Gasiti medic dupa ID");
-        System.out.println("3. Introd varsta si afisare medie");
-        System.out.println("4. Afisare medie ani experienta");
-        System.out.println("5. Exit");
+        System.out.println("2. Acceseaz si seteaza ID");
+        System.out.println("3. Gasiti medic dupa ID");
+        System.out.println("4. Introd varsta si afisare medie");
+        System.out.println("5. Afisare medie ani experienta");
+        System.out.println("6. Exit");
         System.out.print("Introd alegere: ");
         System.out.print("\n");
         alege = scanner.nextInt();
 
       switch (alege) {
         case 1:
+          //ob. din cls. princip., care va apela constructorul
+          //instantiere obiect
           Medic m1 = new Medic("Marin","Andrei","3344","Oftalmologie");
           m1.varsta = 33;
           m1.aniexp = 8;
@@ -83,19 +91,23 @@ public class Medic {
           System.out.println(m2);
           break;
         case 2:
+          /////
+          break;
+        case 3:
           srchID(idm);
           System.out.println(idm);
           break;
-        case 3:
+        case 4:
           addVarsta(varstamed);
           System.out.println(varstamed);
           break;
-        case 4:
+        case 5:
           int[] anex = {25, 30, 35, 40, 45};
+          //incapsulare
           double medieAniExp = calculMedieAniExp(anex);
           System.out.println("Varsta medie: " + medieAniExp);
           break;
-        case 5:
+        case 6:
           System.out.println("Exiting...");
           break;
         default:
