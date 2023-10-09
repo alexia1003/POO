@@ -91,21 +91,15 @@ public class Medic {
           m2.aniexp = 1;
           m2.IDdepartament = 6;
           
-          System.out.print(m1.nume);
-          System.out.print(m1.prenume);
-          System.out.print(m1.ID);
-          System.out.println(m1.departament);
-          System.out.println(m1.varsta);
-          System.out.println(m1.aniexp);
-          System.out.println(m1.IDdepartament);
+          System.out.println(m1.nume + m1.prenume + m1.ID + m1.departament);
+          System.out.print("Varsta: " + m1.varsta);
+          System.out.print(". Ani experienta: " + m1.aniexp);    
+          System.out.println(". Id departament: " + m1.IDdepartament);
 
-          System.out.print(m2.nume);
-          System.out.print(m2.prenume);
-          System.out.print(m2.ID);
-          System.out.println(m2.departament);
-          System.out.println(m2.varsta);
-          System.out.println(m2.aniexp);    
-          System.out.println(m2.IDdepartament);     
+          System.out.println(m2.nume + m2.prenume + m2.ID + m2.departament);
+          System.out.print("Varsta: " + m2.varsta);
+          System.out.print(". Ani experienta: " + m2.aniexp);    
+          System.out.print(". Id departament: " + m2.IDdepartament);
           break;
 
         case 2:
@@ -181,5 +175,6 @@ public class Medic {
 
       scan.close();
     }
+
            
 }
