@@ -1,0 +1,98 @@
+ import java.util.ArrayList;
+
+public class Medic {
+  private ArrayList<String> nume;
+  private ArrayList<String> prenume;
+  private ArrayList<Integer> varsta;
+  private ArrayList<Integer> aniexp;
+
+  public Medic() {
+    this.nume = new ArrayList<String>();
+    this.prenume = new ArrayList<String>();
+    this.varsta = new ArrayList<Integer>();
+    this.aniexp = new ArrayList<Integer>();
+  }
+
+  public void addMedic(String n, String p) {
+    this.nume.add(n);
+    this.prenume.add(p);
+    this.varsta.add(0);
+    this.aniexp.add(0);
+  }
+
+  public void removeMedic(String n) {
+    int index = this.nume.indexOf(n);
+    if (index >= 0) {
+      this.nume.remove(index);
+      this.prenume.remove(index);
+      this.varsta.remove(index);
+      this.aniexp.remove(index);
+    }
+  }
+
+  public void addVarsta(String n, int vrs) {
+    int index = this.nume.indexOf(n);
+    if (index >= 0) {
+      int vAct = this.vrs.get(index);
+      int c = this.count.get(index);
+      this.vrs.set(index, vAct + vrs);
+      this.count.set(index, c + 1);
+    }
+  }
+
+  public double getMedieVarsta(String n) {
+    int index = this.nume.indexOf(n);
+    if (index >= 0) {
+      int totalVarsta = this.varsta.get(index);
+      int cnt = this.count.get(index);
+      return cnt > 0 ? (double) totalVarsta / cnt : 0.0;
+    } else {
+      return 0.0;
+    }
+  }
+
+  public void displayMedic() {
+    for (int i = 0; i < nume.size(); i++) {
+      System.out.println(nume.get(i) + ": $" + prenume.get(i));
+    }
+  }
+
+  public double calculMedieVarsta() {
+    double totalVarsta = 0;
+    int nrVrs = 0;
+    for (int i = 0; i < varsta.size(); i++) {
+      totalVarsta += varsta.get(i);
+      nrVrs++;
+    }
+    return nrVrs > 0 ? totalVarsta / nrVrs : 0.0;
+  }
+
+
+
+  public static void main(String[] args) {
+    Medic medic = new Medic();
+    medic.addMedic("Barbu", "Ana");
+    medic.addMedic("Ion", "Andrei");
+    medic.addMedic("Cristea", "Andreea");
+
+    System.out.println("Medic:Nume & Prenume");
+    medic.displayMedic();
+
+    medic.addVarsta("B. Ana", 44);
+    medic.addVarsta("I. Andrei", 35);
+    medic.addVarsta("C. Andreea", 26);
+     
+	double medieVarsta = medic.getMedieVarsta("B. Ana");
+    System.out.println("\nMedie varsta pt B. Ana: " + medieVarsta); 	 
+	medieEval = medic.getMedieEval("I. Andrei");
+    System.out.println("Medie varsta pt I. Andrei: " + medieVarsta);  	 
+	medieEval = medic.getMedieEval("Salata");
+    System.out.println("Medie varsta pt C. Andreea: " + medieVarsta); 
+    
+    System.out.println("Medie varsta: " + medic.calculMedieVarsta());
+    System.out.println("\n Elimina 'I. Andrei'.");
+    medic.removeMedic("I. Andrei");
+    System.out.println("\nLista actualizata:");
+    medic.displayMedic();
+  }
+}
