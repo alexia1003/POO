@@ -33,10 +33,10 @@ public class Medic {
   public void addVarsta(String n, int vrs) {
     int index = this.nume.indexOf(n);
     if (index >= 0) {
-      int vAct = this.vrs.get(index);
-      int c = this.count.get(index);
-      this.vrs.set(index, vAct + vrs);
-      this.count.set(index, c + 1);
+      int vAct = this.varsta.get(index);
+      int c = this.aniexp.get(index);
+      this.varsta.set(index, vAct + vrs);
+      this.aniexp.set(index, c + 1);
     }
   }
 
@@ -44,7 +44,7 @@ public class Medic {
     int index = this.nume.indexOf(n);
     if (index >= 0) {
       int totalVarsta = this.varsta.get(index);
-      int cnt = this.count.get(index);
+      int cnt = this.aniexp.get(index);
       return cnt > 0 ? (double) totalVarsta / cnt : 0.0;
     } else {
       return 0.0;
@@ -84,14 +84,14 @@ public class Medic {
      
 	double medieVarsta = medic.getMedieVarsta("B. Ana");
     System.out.println("\nMedie varsta pt B. Ana: " + medieVarsta); 	 
-	medieEval = medic.getMedieEval("I. Andrei");
+	medieVarsta = medic.getMedieVarsta("I. Andrei");
     System.out.println("Medie varsta pt I. Andrei: " + medieVarsta);  	 
-	medieEval = medic.getMedieEval("Salata");
+	medieVarsta = medic.getMedieVarsta("C. Andreea");
     System.out.println("Medie varsta pt C. Andreea: " + medieVarsta); 
     
     System.out.println("Medie varsta: " + medic.calculMedieVarsta());
-    System.out.println("\n Elimina 'I. Andrei'.");
-    medic.removeMedic("I. Andrei");
+    System.out.println("\n Elimina 'Ion Andrei'.");
+    medic.removeMedic("Ion Andrei");
     System.out.println("\nLista actualizata:");
     medic.displayMedic();
   }
