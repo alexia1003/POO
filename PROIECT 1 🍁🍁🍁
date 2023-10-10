@@ -1,0 +1,184 @@
+import java.util.Scanner;
+
+public class Medic {
+// membrii, var. clasei
+  public String nume;
+  public String prenume;
+  public String ID;
+  public int varsta;
+  public int aniexp; //ani experienta
+  public String departament; 
+  public int IDdepartament;
+
+// setMedic ~ constructor pt clasa Medic
+// initializarea variabilelor
+// ~ op.1
+  public Medic(String nume, String prenume, String ID, String departament) {
+    this.nume = nume;
+    this.prenume = prenume;
+    this.ID = ID;
+    this.departament = departament;
+  }
+
+// metodele clasei Medic get/set
+// acceseaza ID-ul departamentului 
+// ~ op.1
+  public int getIDdepartament() {
+    return IDdepartament; }
+ 
+  public void setIDdepartament(int IDdepartament) {
+    this.IDdepartament = IDdepartament;
+  }
+
+// gaseste medic dupa ID  
+// metoda statica
+// ~ op.2
+  public static void addNumeSiDep() {
+    String med;
+    Scanner sc = new Scanner(System.in);
+    med = sc.nextLine();
+    // introdu date
+    System.out.println("Introdu nume: ");
+    String nume = sc.nextLine();
+    System.out.println("Introdu departament: ");
+    String departament = sc.nextLine();
+    // afisare date introduse
+    System.out.println("Numele este: " + nume);
+    System.out.println("Departamentul este: " + departament);
+  }
+
+// gaseste medic dupa ID  
+// metoda statica
+// ~ op.3
+  public static void srchID() {
+    int[] medicIdDep = {1, 2, 3};
+    String[] medicNumePrenume = {"I. Andreea", "J. Cristian", "M. Ana"};
+
+    Scanner scaner = new Scanner(System.in);
+    System.out.print("Introdu un ID: ");
+    int medIdD = scaner.nextInt();
+    // Cautare id medic
+    int index = -1;
+    for (int i = 0; i < medicIdDep.length; i++) 
+    { if (medicIdDep[i] == medIdD) 
+    { index = i;
+      break; } }
+    // Verificare id gasit
+    if (index != -1) 
+    { // id gasit -> afisare nume medic
+    String medNumPre = medicNumePrenume[index];
+    System.out.println("Numele si Prenumele medicului: " + medNumPre); } 
+    else 
+    { // id negasit -> eroare
+      System.out.println("ID-ul medicului nu a fost gasit."); }
+  }
+
+// introd varsta afisare medie varsta
+// metoda statica
+// ~ op.4
+  public static double addVarsta() {
+    int nr;
+    System.out.println("Introdu nr.: ");
+    Scanner s = new Scanner(System.in);
+    nr = s.nextInt();
+    int varstamed, suma = 0;
+    double medie = 0;
+    for(int i=0; i<nr; i++)
+    { varstamed = s.nextInt();
+    suma = suma + varstamed; }
+    medie = suma / nr;
+    return medie;
+  }
+
+// afisare medie ani experienta
+// metoda statica
+// ~ op.5
+  public static double calculMedieAniExp(int[] anex) {
+    int sum = 0;
+    for (int ae : anex) //
+    { sum += ae; }
+    return (double) sum / anex.length;
+  }
+
+
+
+    public static void main (String[] args) {
+      Scanner scan = new Scanner(System.in);
+      int alege;
+      
+      do {
+        System.out.println("Meniu:");
+        System.out.println("1. Introducere si afisare medic");
+        System.out.println("2. Introdu numele si departamentul medicului");
+        System.out.println("3. Gasiti medic dupa ID-ul departamentului");
+        System.out.println("4. Introd varsta si afisare medie");
+        System.out.println("5. Afisare medie ani experienta");
+        System.out.println("6. Exit");
+        System.out.print("Introd alegere: ");
+        System.out.print("\n");
+        alege = scan.nextInt();
+
+      switch (alege) {
+        case 1:
+          //ob. din cls. princip., care va apela constructorul
+          //instantiere obiect
+          Medic m1 = new Medic("Marin ","Andrei ","3344 ","Oftalmologie ");
+          m1.varsta = 33;
+          m1.aniexp = 8;
+          m1.setIDdepartament(10);      //metodele clasei
+          System.out.println(m1.getIDdepartament());
+
+          Medic m2 = new Medic("Barbu ","Ioana ","6655 ", "Cardiologie ");
+          m2.varsta = 26;
+          m2.aniexp = 1;
+          m2.setIDdepartament(6);       //metodele clasei
+          System.out.println(m2.getIDdepartament());
+          
+          System.out.println(m1.nume + m1.prenume + m1.ID + m1.departament);
+          System.out.print("Varsta: " + m1.varsta);
+          System.out.print(". Ani experienta: " + m1.aniexp);    
+          System.out.println(". Id departament: " + m1.IDdepartament);
+
+          System.out.println(m2.nume + m2.prenume + m2.ID + m2.departament);
+          System.out.print("Varsta: " + m2.varsta);
+          System.out.print(". Ani experienta: " + m2.aniexp);    
+          System.out.print(". Id departament: " + m2.IDdepartament);
+          break;
+
+        case 2:
+          addNumeSiDep();
+          System.out.println();
+          break;
+
+        case 3:
+          srchID();
+          System.out.println();
+          break;
+
+        case 4:
+          double varstamedic;
+          varstamedic = addVarsta();
+          System.out.println(varstamedic);
+          break;
+
+        case 5:
+          int[] anex = {5, 3, 6, 11, 25};
+          //incapsulare
+          double medieAniExp = calculMedieAniExp(anex);
+          System.out.println("Varsta medie: " + medieAniExp);
+          break;
+        
+        case 6:
+          System.out.println("Exiting...");
+          break;
+        default:
+          System.out.println("Alegere invalida.");
+      }
+      System.out.println();
+      } while (alege != 4);
+
+      scan.close();
+    }
+           
+    
+}
