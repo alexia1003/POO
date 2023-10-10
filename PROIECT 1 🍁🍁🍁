@@ -95,8 +95,8 @@ public class Medic {
 // ~ op.5
   public static double calculMedieAniExp(int[] anex) {
     int sum = 0;
-    for (int ae : anex) //
-    { sum += ae; }
+    for (int ae : anex) //parcurge fiecare elem. tablou
+    { sum += ae; }     //se atribuie var. "ae"
     return (double) sum / anex.length;
   }
 
