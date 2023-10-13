@@ -1,0 +1,49 @@
+public abstract class CandyBox {
+    private String flavour;
+    private String origin;
+
+    public CandyBox() {
+    }
+
+    public CandyBox(String flavour, String origin) {
+        this.flavour = flavour;
+        this.origin = origin;
+    }
+
+    public abstract float getVolume();
+
+    @Override
+    public String toString() {
+        return "The " + origin + " " + flavour + " has volume " + getVolume();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        CandyBox other = (CandyBox) obj;
+        return Objects.equals(flavour, other.flavour) &&
+                Objects.equals(origin, other.origin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flavour, origin);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        CandyBox candyBox1 = new Lindt(10.0f, 5.0f, 3.0f);
+        CandyBox candyBox2 = new Lindt(10.0f, 5.0f, 3.0f);
+        CandyBox candyBox3 = new Baravelli(2.5f, 5.0f);
+        
+        System.out.println(candyBox1.equals(candyBox2)); // true
+        System.out.println(candyBox1.equals(candyBox3)); // false
+    }
+}
