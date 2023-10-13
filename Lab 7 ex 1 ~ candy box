@@ -1,0 +1,29 @@
+public class CandyBox {
+    private String flavour;
+    private String origin;
+
+    public CandyBox() {
+    }
+
+    public CandyBox(String flavour, String origin) {
+        this.flavour = flavour;
+        this.origin = origin;
+    }
+
+    public float getVolume() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Flavour: " + flavour + ", Origin: " + origin;
+    }
+    
+    public static void main(String[] args) {
+        CandyBox candyBox1 = new CandyBox("Chocolate", "Switzerland");
+        CandyBox candyBox2 = new CandyBox("Strawberry", "USA");
+
+        System.out.println(candyBox1.toString());
+        System.out.println(candyBox2.toString());
+    }
+}
