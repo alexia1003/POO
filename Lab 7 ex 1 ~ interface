@@ -1,0 +1,66 @@
+import java.util.Random;
+
+interface Task {
+    void exec();
+}
+
+class OutTask implements Task {
+    private final String mesaj;
+
+    public OutTask(String mesaj) {
+        this.mesaj = mesaj;
+    }
+
+    @Override
+    public void exec() {
+        System.out.println(mesaj);
+    }
+}
+
+class RandomOutTask implements Task {
+    private final String mesaj;
+    private final Random rand;
+
+    public RandomOutTask(String mesaj) {
+        this.mesaj = mesaj;
+        this.rand = new Random();
+    }
+
+    @Override
+    public void exec() {
+        int randNr = rand.nextInt();
+        System.out.println(mesaj + ": " + randNr);
+    }
+}
+
+class CounterOutTask implements Task {
+    private static int count = 0;
+    private final String mesaj;
+
+    public CounterOutTask(String mesaj) {
+        this.mesaj = mesaj;
+    }
+
+    @Override
+    public void exec() {
+        count++;
+        System.out.println(mesaj + ": " + count);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Task outTask = new OutTask("Hello, World!");
+        outTask.exec();
+
+        Task randomOutTask = new RandomOutTask("Random Number");
+        randomOutTask.exec();
+
+        Task counterOutTask1 = new CounterOutTask("Counter");
+        counterOutTask1.exec();
+
+        Task counterOutTask2 = new CounterOutTask("Counter");
+        counterOutTask2.exec();
+    }
+}
