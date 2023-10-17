@@ -1,5 +1,52 @@
 import java.util.List;
 
+public class DoubleCalculator implements Calculator {
+
+    //@Override
+    public double add(double a, double b) throws NullParameterException, OverflowException, UnderflowException {
+        if (Double.isInfinite(b)) {
+            throw new OverflowException();
+        }
+        return a + b;
+    }
+
+    //@Override
+    public double divide(double a, double b) throws NullParameterException, OverflowException, UnderflowException {
+        if (Double.isInfinite(b)) {
+            throw new OverflowException();
+        }
+        if (Double.isInfinite(-b)) {
+            throw new UnderflowException();
+        }
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
+    //@Override
+    public double average(List<Double> numbers) throws NullParameterException, OverflowException, UnderflowException {
+        if (numbers == null) {
+            throw new NullParameterException();
+        }
+        double sum = 0;
+        for (Double number : numbers) {
+            if (number == null) {
+                throw new NullParameterException();
+            }
+            sum = add(sum, number);
+        }
+        return divide(sum, numbers.size());
+    }
+    
+    public static void main(String[] args) {
+      
+    }
+    
+}
+///////////////
+import java.util.List;
+
 public interface Calculator {
   
   public class NullParameterException extends Exception {
@@ -19,44 +66,4 @@ public class UnderflowException extends Exception {
         super("Underflow occurred");
     }
 }
-}
-
-public class DoubleCalculator implements Calculator {
-
-    @Override
-    public double add(double a, double b) throws NullParameterException, OverflowException, UnderflowException {
-        if (Double.isInfinite(b)) {
-            throw new OverflowException();
-        }
-        return a + b;
-    }
-
-    @Override
-    public double divide(double a, double b) throws NullParameterException, OverflowException, UnderflowException {
-        if (Double.isInfinite(b)) {
-            throw new OverflowException();
-        }
-        if (Double.isInfinite(-b)) {
-            throw new UnderflowException();
-        }
-        if (b == 0) {
-            throw new ArithmeticException("Cannot divide by zero");
-        }
-        return a / b;
-    }
-
-    @Override
-    public double average(List<Double> numbers) throws NullParameterException, OverflowException, UnderflowException {
-        if (numbers == null) {
-            throw new NullParameterException();
-        }
-        double sum = 0;
-        for (Double number : numbers) {
-            if (number == null) {
-                throw new NullParameterException();
-            }
-            sum = add(sum, number);
-        }
-        return divide(sum, numbers.size());
-    }
 }
