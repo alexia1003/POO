@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public class ThreadApplication {
+public class ThreadApplication extends Thread {
+  
+  //public void run() { }
   
   
   
@@ -12,9 +14,21 @@ public class ThreadApplication {
     if(numThreads < 1 && numThreads > 10)
     { System.out.println("Eroare!");
     
-    while(numThreads)
+    while(numThreads == 1)
     { ThreadApplication x = new ThreadApplication();
     }
     
+    try {
+      ThreadApplication obj = new ThreadApplication();
+      throw new RuntimeException();
+    }
+    catch (Exception e) {
+ 
+    System.out.println("Another thread is not supported");
+  }
+    //int runner = new ThreadApplication();
+    //runner.start();
+    
+    }
   }
 }
