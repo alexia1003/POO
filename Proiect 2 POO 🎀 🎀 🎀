@@ -29,7 +29,7 @@ public class Medic {
     private int varsta;
     
     private final String NUME_SPITAL = "Spital Roz";
-    private StringBuffer reteta; 
+    private StringBuffer tratament; 
     private ArrayList<String> medicamente;
     private String sectie; 
 
@@ -41,17 +41,17 @@ public class Medic {
         this.prenume = prenume;
         this.ID = ID; 
         this.varsta = varsta;
-        this.reteta = new StringBuffer();
+        this.tratament = new StringBuffer();
         this.medicamente = new ArrayList<>();
         this.sectie = sectie;
     }
 
-    // Constructor 2 ~ fara prenume+sectie | & reteta & medicamente
-    public Medic(String nume, String ID, int varsta, String reteta, ArrayList<String> medicamente) {
+    // Constructor 2 ~ fara prenume+sectie | & tratament & medicamente
+    public Medic(String nume, String ID, int varsta, String tartament, ArrayList<String> medicamente) {
         this.nume = nume;
         this.ID = ID; 
         this.varsta = varsta;   
-        this.reteta.append(reteta);     
+        this.tratament.append(tratament);     
         this.medicamente.addAll(medicamente);
     }
 
@@ -61,7 +61,7 @@ public class Medic {
         this.prenume = exemplu.prenume;
         this.ID = exemplu.ID;
         this.varsta = exemplu.varsta;
-        this.reteta = new StringBuffer(exemplu.reteta.toString());
+        this.tratament = new StringBuffer(exemplu.tratament.toString());
         this.medicamente = new ArrayList<>(exemplu.medicamente);
         this.sectie = exemplu.sectie;
     }
@@ -74,7 +74,7 @@ public class Medic {
             ", prenume: " + prenume +
             ", ID: " + ID +
             ", varsta: " + varsta +
-            ", reteta: " + reteta.toString() +
+            ", tratament: " + tratament.toString() +
             ", medicamente: " + medicamente.toString() +
             ", sectie: " + sectie +
             '}';
@@ -153,7 +153,6 @@ public class Medic {
     
     // Metoda de clasa pt. adaug. num.prenum. de la tastatura
     public static void addNumePrenume() {
-        String pac;
         Scanner sc = new Scanner(System.in);
         pac = sc.nextLine();
         // introdu date
@@ -205,25 +204,25 @@ public static void main(String[] args) {
         m1.addMedicament("Nurofen");
         m2.addMedicament("Ampicilina");
 
-        // Afisare medicament prescris de medic
+        // Afisare medicament prescris
         System.out.println("Medicament dat de Medic 1:");
         m1.displayMedicament();
         System.out.println("Medicament dat de Medic 2:");
         m2.displayMedicament();
         System.out.println("\n");
 
-        // Adaugare reteta medic
-        m1.reteta.append("Diagnostic: Febra. ")
+        // Adaugare tartament medic
+        m1.tratament.append("Diagnostic: Febra. ")
         .append("Reteta: Paracetamol si Nurofen.");
-        m2.reteta.append("Diagnostic: Viroza respiratorie. ")
+        m2.tratament.append("Diagnostic: Viroza respiratorie. ")
         .append("Reteta: Ampicilina.");
         System.out.println("\n");
 
-        // Afisare reteta medic
-        System.out.println("Reteta scrisa de medic 1:");
-        System.out.println(m1.reteta.toString());
-        System.out.println("Reteta scrisa de medic 2:");
-        System.out.println(m2.reteta.toString());
+        // Afisare tratament medic
+        System.out.println("Tratamentul scris de medic 1:");
+        System.out.println(m1.tratament.toString());
+        System.out.println("Tratamentul scris de medic 2:");
+        System.out.println(m2.tratament.toString());
         System.out.println("\n");
 
         // Afisare detalii medic
