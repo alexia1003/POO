@@ -179,7 +179,7 @@ public static void main(String[] args) {
       
     do {
     System.out.println("Meniu:");
-    System.out.println("1. Creare instanta Pacient, met. get, afis. medicament, afis. detalii");
+    System.out.println("1. Creare instanta Pacient si met. instanta");
     System.out.println("2. Varsta medie a pacientilor");
     System.out.println("3. Introdu nume si prenume");
     System.out.println("4. Afisare info. spital");
@@ -195,24 +195,41 @@ public static void main(String[] args) {
         Pacient p1 = new Pacient("Barbu", "Ion","3355", 40, "cardiologie");
         Pacient p2 = new Pacient("Alchim", "Joanna", "6622",35, "interne");
          
+        // Metoda get pt. afisare sectie
+        System.out.println("Pacient 1 Sectie: " + p1.getSectie());
+        System.out.println("Pacient 2 Sectie: " + p2.getSectie());
+        System.out.println("\n");
+        
         // Metode instanta pt. adaugare medicament
         p1.addMedicament("Paracetamol");
         p1.addMedicament("Nurofen");
         p2.addMedicament("Ampicilina");
 
-        // Metoda get pt. afisare sectie
-        System.out.println("Pacient 1 Sectie: " + p1.getSectie());
-        System.out.println("Pacient 2 Sectie: " + p2.getSectie());
-        
         // Afisare medicament pacient
         System.out.println("Medicament pt Pacient 1:");
         p1.displayMedicament();
         System.out.println("Medicament pt Pacient2:");
         p2.displayMedicament();
+        System.out.println("\n");
+
+        // Adaugare istoric pacient
+        p1.istoricPacient.append("Febra. ")
+        .append("Reteta: Paracetamol si Nurofen.");
+        p2.istoricPacient.append("Viroza respiratorie. ")
+        .append("Reteta: Ampicilina.");
+        System.out.println("\n");
+
+        // Displaying historical medical data
+        System.out.println("Istoric medical Pacient 1:");
+        System.out.println(p1.istoricPacient.toString());
+        System.out.println("Istoric medical data for Pacient 2:");
+        System.out.println(p2.istoricPacient.toString());
+        System.out.println("\n");
 
         // Afisare detalii pacient
         System.out.println("Detalii despre pacientul 1: \n" + p1.toString());
         System.out.println("Detalii despre pacientul 2: \n" + p2.toString());
+        System.out.println("\n");
 
         break;
 
