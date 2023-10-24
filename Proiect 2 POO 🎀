@@ -1,0 +1,382 @@
+package proiect2poo; //////
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
+
+
+public class Pacient {
+    private String nume;
+    private String prenume;
+    private String ID;
+    private int varsta;
+    
+    private final String NUME_SPITAL = "Spital Roz";
+    private StringBuffer istoricPacient; //istoric medical pacient
+    private ArrayList<String> medicamente;
+    private String sectie; 
+
+
+
+    // Constructor 1
+    public Pacient(String nume, String prenume, String ID, int varsta, String sectie) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.ID = ID; 
+        this.varsta = varsta;
+        this.istoricPacient = new StringBuffer();
+        this.medicamente = new ArrayList<>();
+        this.sectie = sectie;
+    }
+ 
+    // Constructor 2 ~ fara prenume+sectie | & istoricP & medicamente
+    public Pacient(String nume, String ID, int varsta, String istoricPacient, ArrayList<String> medicamente) {
+        this.nume = nume;
+        this.ID = ID; 
+        this.varsta = varsta;   
+        this.istoricPacient.append(istoricPacient);     
+        this.medicamente.addAll(medicamente);
+    }
+
+    // Constructor 3 ~ noua inst., copiere val. din ex.
+    public Pacient(Pacient exemplu) {
+        this.nume = exemplu.nume;
+        this.prenume = exemplu.prenume;
+        this.ID = exemplu.ID;
+        this.varsta = exemplu.varsta;
+        this.istoricPacient = new StringBuffer(exemplu.istoricPacient.toString());
+        this.medicamente = new ArrayList<>(exemplu.medicamente);
+        this.sectie = exemplu.sectie;
+    }
+    
+    // Metoda toString() 
+    @Override
+    public String toString() {
+    return "Medic{" +
+            "name='" + nume + '\'' +
+            ", prenume=" + prenume +
+            ", ID=" + ID +
+            ", varsta=" + varsta +
+            ", istoricPacient=" + istoricPacient.toString() +
+            ", medicamente=" + medicamente.toString() +
+            ", sectie=" + sectie +
+            '}';
+    }
+
+    // Accesare campuri private
+    // Getter pt Nume Spital
+    public String getNumeSpital() {
+        return NUME_SPITAL;
+    }
+    // Getter pt nume
+    public String getNume() {
+        return nume;
+    }
+    // Getter pt nume
+    public String getPreume() {
+        return prenume;
+    }
+    // Getter pt ID
+    public String getID() {
+        return ID;
+    }
+    // Getter pt varsta
+    public int getVarsta() {
+        return varsta;
+    }
+    // Getter pt sectie
+    public String getSectie() {
+        return sectie;
+    }
+    
+    // Setare campuri private
+    // Setter pt nume
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+    // Setter pt nume
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+    // Setter pt ID
+    public void ID(String ID) {
+        this.ID = ID;
+    }
+    // Setter pt varsta
+    public void setVarsta(int varsta) {
+        this.varsta = varsta;
+    }
+    // Setter pt sectie
+    public void setSectie(String sectie) {
+        this.sectie = sectie;
+    }
+
+
+    // Metode
+
+    // Metoda de instanta pt adaugarea unui singur medicament
+    public void addMedicament(String medicament) {
+        this.medicamente.add(medicament);
+    }
+
+    // Metoda de instanta pt afisarea tuturor medicamentelor
+    public void displayMedicament() {
+        for (String med : this.medicamente) { //parcurge fiecare elem. lista
+            System.out.println(med);         //atribuie val. la St. med
+        }
+    }
+
+    // Tablou
+    public static double calculMedieVarstaPacienti(int[] varstap) {
+        int sum = 0;
+        for (int vp : varstap) //parcurge fiecare elem. tablou
+        { sum += vp; }        //se atribuie var. "vp"
+        return (double) sum / varstap.length;
+      }
+    
+    // Metoda de clasa pt. adaug. num.prenum. de la tastatura
+    public static void addNumePrenume() {
+        String pac;
+        Scanner sc = new Scanner(System.in);
+        pac = sc.nextLine();
+        // introdu date
+        System.out.println("Introdu nume: ");
+        String num = sc.nextLine();
+        System.out.println("Introdu prenume: ");
+        String prenum = sc.nextLine();
+        // afisare date introduse
+        System.out.println("Numele si Prenumele sunt: " + num + " " + prenum);
+      }
+
+    // Metoda de clasa pt info spital
+    public static void displayInfoSpital() {
+        System.out.println("str. Lalelelor nr. 6");
+    }
+
+
+
+public static void main(String[] args) {
+
+    Scanner scan = new Scanner(System.in);
+    int alege;
+      
+    do {
+    System.out.println("Meniu:");
+    System.out.println("1. Creare instanta Pacient, met. get, afis. medicament");
+    System.out.println("2. Varsta medie a pacientilor");
+    System.out.println("3. Introdu nume si prenume");
+    System.out.println("4. Afisare info. spital");
+    System.out.println("5. Java Swing");
+    System.out.println("6. Exit");
+    System.out.print("Introd alegere: ");
+    System.out.print("\n");
+    alege = scan.nextInt();
+
+    switch (alege) {
+        case 1:
+        // Creare instanta Pacient
+        Pacient p1 = new Pacient("Barbu", "Ion","3355", 40, "cardiologie");
+        Pacient p2 = new Pacient("Alchim", "Joanna", "6622",35, "interne");
+         
+        // Metode instanta pt. adaugare medicament
+        p1.addMedicament("Paracetamol");
+        p1.addMedicament("Nurofen");
+        p2.addMedicament("Ampicilina");
+
+        // Metoda get pt. afisare sectie
+        System.out.println("Pacient 1 Sectie: " + p1.getSectie());
+        System.out.println("Pacient 2 Sectie: " + p2.getSectie());
+        
+        // Afisare medicament pacient
+        System.out.println("Medicament pt Pacient 1:");
+        p1.displayMedicament();
+        System.out.println("Medicament pt Pacient2:");
+        p2.displayMedicament();
+        break;
+
+        case 2:
+        // Tablou
+        int[] varstap = {39, 73, 66, 51, 47, 84};
+        //incapsulare
+        double medieVarstaPacienti = calculMedieVarstaPacienti(varstap);
+        System.out.println("Varsta medie a pacientilor: " + medieVarstaPacienti);
+        break;
+
+        case 3:
+        // Metoda de clasa
+        Pacient.addNumePrenume();
+        System.out.println();
+        break;
+
+        case 4:
+        // Metoda de clasa
+        Pacient.displayInfoSpital();   
+        break;
+
+        case 5:
+        // Java Swing \\
+        JFrame frame = new JFrame("Pacient");
+
+        Font mainFont = new Font("Segoe print", Font.BOLD, 18);
+
+        // Camp text
+        JTextField tfNume = new JTextField();
+        tfNume.setFont(mainFont);
+        JTextField tfPrenume = new JTextField();
+        tfPrenume.setFont(mainFont);
+        JTextField tfID = new JTextField();
+        tfID.setFont(mainFont);
+        JTextField tfVarsta = new JTextField();
+        tfVarsta.setFont(mainFont);
+        JTextField tfSectie = new JTextField();
+        tfSectie.setFont(mainFont);
+
+        JLabel lbPacient = new JLabel();
+        lbPacient.setFont(mainFont);
+        
+        // Nume inregistrari
+        JLabel lbNume = new JLabel("Nume");
+        lbNume.setFont(mainFont);
+        JLabel lbPrenume = new JLabel("Prenume");
+        lbPrenume.setFont(mainFont);
+        JLabel lbID = new JLabel("ID");
+        lbID.setFont(mainFont);
+        JLabel lbVarsta = new JLabel("Varsta");
+        lbVarsta.setFont(mainFont);
+        JLabel lbSectie = new JLabel("Sectie");
+        lbSectie.setFont(mainFont);
+
+
+
+        // Functie de validare date intare 
+        ActionListener validareDate = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String n = tfNume.getText();
+                String p = tfPrenume.getText();
+                String i = tfID.getText();
+                String v = tfVarsta.getText();
+                String s = tfSectie.getText();
+
+                if (n.isEmpty() || p.isEmpty() || i.isEmpty() || v.isEmpty() || s.isEmpty()) 
+                { // Verif. camp liber
+                  JOptionPane.showMessageDialog(frame, "Atentie! Campuri goale.");
+                } else {
+                try {
+                int vs = Integer.parseInt(v);   //return varsta String sub forma de int
+                // Verif. varsta valida
+                if (vs < 0 || vs > 150) {
+                    JOptionPane.showMessageDialog(frame, "Introdu o varsta valida.");
+                } else {
+                    // Toate info. sunt valide
+                    lbPacient.setText("Pacientul: " + n + " " + p + " Id-ul: " + i + " Varsta: " + v + " ~ " + s);
+                }
+                } catch (NumberFormatException ex) {    //convert. String - int nu e posibila
+                JOptionPane.showMessageDialog(frame, "Introdu o valoare valida pt varsta.");
+                }
+                }
+        }};
+
+        // Buton 
+        JButton btnOK = new JButton("OK");
+        btnOK.setFont(mainFont);
+        btnOK.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nume = tfNume.getText();
+                String prenume = tfPrenume.getText();
+                String ID = tfID.getText();
+                String varsta = tfVarsta.getText();
+                String sectie = tfSectie.getText();
+                lbPacient.setText("Pacientul: " + nume + " " + prenume + 
+                " Id-ul: " + ID + " Varsta: " + varsta + " ~ " + sectie);
+            }
+        });
+
+        // F. de valid. alocata butonului OK 
+        btnOK.addActionListener(validareDate);
+
+        // Buton
+        JButton btnClear = new JButton("Clear");
+        btnClear.setFont(mainFont);
+        btnClear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tfNume.setText(" ");
+                tfPrenume.setText(" ");
+                tfID.setText(" ");
+                tfVarsta.setText(" ");
+                tfSectie.setText(" ");
+                lbPacient.setText(" ");
+            }
+        });
+
+
+        // Adaugare campuri si nume camp
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new GridLayout(5, 1, 5, 5));
+        formPanel.add(lbNume);
+        formPanel.add(tfNume);
+        formPanel.add(lbPrenume);
+        formPanel.add(tfPrenume);
+        formPanel.add(lbID);
+        formPanel.add(tfID);
+        formPanel.add(lbVarsta);
+        formPanel.add(tfVarsta);
+        formPanel.add(lbSectie);
+        formPanel.add(tfSectie);
+
+        // Adaugare butoane
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new GridLayout(1, 2, 5, 5));
+        buttonsPanel.add(btnOK);
+        buttonsPanel.add(btnClear);
+
+        // Adaugare fereastra
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setBackground(new Color(255, 102, 102));
+        mainPanel.add(formPanel, BorderLayout.NORTH);
+        mainPanel.add(lbPacient, BorderLayout.CENTER);
+        mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
+        frame.add(mainPanel);
+
+        // Setare bara titlu
+        frame.setTitle("Pacient");
+        frame.setSize(500, 600);
+        frame.setMinimumSize(new Dimension(300, 400));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        break;
+        
+        case 6:
+          System.out.println("Exiting...");
+          break;
+        default:
+          System.out.println("Alegere invalida.");
+      }
+      System.out.println();
+      } while (alege != 6);
+
+      scan.close();
+    }
+      
+  }
