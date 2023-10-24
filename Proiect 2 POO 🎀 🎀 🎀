@@ -46,12 +46,12 @@ public class Medic {
         this.sectie = sectie;
     }
 
-    // Constructor 2 ~ fara prenume+sectie | & istoricP & medicamente
-    public Medic(String nume, String ID, int varsta, String istoricPacient, ArrayList<String> medicamente) {
+    // Constructor 2 ~ fara prenume+sectie | & reteta & medicamente
+    public Medic(String nume, String ID, int varsta, String reteta, ArrayList<String> medicamente) {
         this.nume = nume;
         this.ID = ID; 
         this.varsta = varsta;   
-        this.reteta.append(istoricPacient);     
+        this.reteta.append(reteta);     
         this.medicamente.addAll(medicamente);
     }
 
@@ -212,21 +212,21 @@ public static void main(String[] args) {
         m2.displayMedicament();
         System.out.println("\n");
 
-        // Adaugare istoric pacient
+        // Adaugare reteta medic
         m1.reteta.append("Diagnostic: Febra. ")
         .append("Reteta: Paracetamol si Nurofen.");
         m2.reteta.append("Diagnostic: Viroza respiratorie. ")
         .append("Reteta: Ampicilina.");
         System.out.println("\n");
 
-        // Displaying historical medical data
+        // Afisare reteta medic
         System.out.println("Reteta scrisa de medic 1:");
         System.out.println(m1.reteta.toString());
         System.out.println("Reteta scrisa de medic 2:");
         System.out.println(m2.reteta.toString());
         System.out.println("\n");
 
-        // Afisare detalii pacient
+        // Afisare detalii medic
         System.out.println("Detalii despre medic 1: \n" + m1.toString());
         System.out.println("Detalii despre medic 2: \n" + m2.toString());
         System.out.println("\n");
