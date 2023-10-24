@@ -1,4 +1,4 @@
-package proiect2poo; //////
+package proiect2poo; ///////
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -361,7 +361,7 @@ public static void main(String[] args) {
         // Setare bara titlu
         frame.setTitle("Pacient");
         frame.setSize(500, 600);
-        frame.setMinimumSize(new Dimension(300, 400));
+        frame.setMinimumSize(new Dimension(300, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
