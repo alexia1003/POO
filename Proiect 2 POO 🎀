@@ -45,7 +45,7 @@ public class Pacient {
         this.medicamente = new ArrayList<>();
         this.sectie = sectie;
     }
- 
+
     // Constructor 2 ~ fara prenume+sectie | & istoricP & medicamente
     public Pacient(String nume, String ID, int varsta, String istoricPacient, ArrayList<String> medicamente) {
         this.nume = nume;
@@ -336,9 +336,9 @@ public static void main(String[] args) {
         btnOK.addActionListener(validareDate);
 
         // Buton
-        JButton btnClear = new JButton("Clear");
-        btnClear.setFont(mainFont);
-        btnClear.addActionListener(new ActionListener() {
+        JButton btnSterge = new JButton("Sterge");
+        btnSterge.setFont(mainFont);
+        btnSterge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tfNume.setText(" ");
@@ -369,7 +369,7 @@ public static void main(String[] args) {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1, 2, 5, 5));
         buttonsPanel.add(btnOK);
-        buttonsPanel.add(btnClear);
+        buttonsPanel.add(btnSterge);
 
         // Adaugare fereastra
         JPanel mainPanel = new JPanel();
