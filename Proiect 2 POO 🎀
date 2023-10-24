@@ -69,14 +69,14 @@ public class Pacient {
     // Metoda toString() 
     @Override
     public String toString() {
-    return "Medic{" +
-            "name='" + nume + '\'' +
-            ", prenume=" + prenume +
-            ", ID=" + ID +
-            ", varsta=" + varsta +
-            ", istoricPacient=" + istoricPacient.toString() +
-            ", medicamente=" + medicamente.toString() +
-            ", sectie=" + sectie +
+    return "Pacient{" +
+            "nume: '" + nume + '\'' +
+            ", prenume: " + prenume +
+            ", ID: " + ID +
+            ", varsta: " + varsta +
+            ", istoricPacient: " + istoricPacient.toString() +
+            ", medicamente: " + medicamente.toString() +
+            ", sectie: " + sectie +
             '}';
     }
 
@@ -179,7 +179,7 @@ public static void main(String[] args) {
       
     do {
     System.out.println("Meniu:");
-    System.out.println("1. Creare instanta Pacient, met. get, afis. medicament");
+    System.out.println("1. Creare instanta Pacient, met. get, afis. medicament, afis. detalii");
     System.out.println("2. Varsta medie a pacientilor");
     System.out.println("3. Introdu nume si prenume");
     System.out.println("4. Afisare info. spital");
@@ -209,6 +209,11 @@ public static void main(String[] args) {
         p1.displayMedicament();
         System.out.println("Medicament pt Pacient2:");
         p2.displayMedicament();
+
+        // Afisare detalii pacient
+        System.out.println("Detalii despre pacientul 1: \n" + p1.toString());
+        System.out.println("Detalii despre pacientul 2: \n" + p2.toString());
+
         break;
 
         case 2:
